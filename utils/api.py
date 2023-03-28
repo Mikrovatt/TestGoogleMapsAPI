@@ -39,7 +39,6 @@ class GoogleMapAPI:
 
     @staticmethod
     def put_place(place_id):
-
         json_for_change_place = {
             "place_id": place_id,
             "address": "100 Lenina street, RU",
@@ -47,7 +46,19 @@ class GoogleMapAPI:
         }
 
         put_resource = '/maps/api/place/update/json'
-        put_url = f'{GoogleMapAPI.base_url}{put_resource}{GoogleMapAPI.key}&place_id={place_id}'
+        put_url = f'{GoogleMapAPI.base_url}{put_resource}{GoogleMapAPI.key}'
         print(put_url)
         result_put = HttpMethods.put(put_url, json_for_change_place)
         return result_put
+
+    @staticmethod
+    def delete_place(place_id):
+
+        json_for_delete_place = {
+            "place_id": place_id
+        }
+
+        delete_resource = '/maps/api/place/delete/json'
+        delete_url = f'{GoogleMapAPI.base_url}{delete_resource}{GoogleMapAPI.key}'
+        result_delete = HttpMethods.delete(delete_url, json_for_delete_place)
+        return result_delete
