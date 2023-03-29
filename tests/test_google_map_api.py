@@ -4,6 +4,8 @@ from ..utils.cheking import Checking
 
 class TestCreatePlace:
     """ Класс для тестирования создания, изменения и удаления локации """
+
+    # Позитивное тестирование
     @staticmethod
     def test_create_place() -> None:
         print('\nМетод POST: проверка создания новой локации')
@@ -40,6 +42,8 @@ class TestCreatePlace:
         Checking.check_status_code(result_delete, 200)
         Checking.check_json_key(result_delete, ['status'])
         Checking.check_json_value(result_delete, 'status', 'OK')
+
+        # Негативное тестирование
 
         print('\nМетод GET: проверка получения данных удаленной(несуществующей) локации')
         result_get = GoogleMapAPI.get_place(place_id)
