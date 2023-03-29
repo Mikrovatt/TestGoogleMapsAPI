@@ -19,7 +19,9 @@ class Checking:
         print('Все необходимые поля присутствуют')
 
     @staticmethod
-    def check_json_value(result: Response, expected_value) -> None:
+    def check_json_value(result: Response, field_name: str, expected_value: str) -> None:
         """ Метод проверки значений полей запроса """
-
-        pass
+        value = result.json()
+        check_value = value[field_name]
+        assert expected_value == check_value
+        print(f'Значение поля {field_name}: {check_value}. Верно!')
