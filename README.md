@@ -1,3 +1,5 @@
 # TestGoogleMapsAPI
-Тестовый проект по тестирванию GoogleMapsAPI 
+Тестовый проект по тестированию GoogleMapsAPI 
 согласно технической документации DocumentAPI.txt
+
+Запуск тестирования "pytest -s -v"
